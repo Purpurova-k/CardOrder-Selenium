@@ -17,10 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CardOrderNegativeTest {
     private WebDriver driver;
 
-//    String nameField = "[data-test-id=name] input";
-//    String phoneField = "[data-test-id=phone] input";
-//    String checkbox = "[data-test-id=agreement] span";
-//    String button = "button";
+    WebElement nameField = driver.findElement(By.cssSelector("[data-test-id=name] input"));
+    WebElement phoneField = driver.findElement(By.cssSelector("[data-test-id=phone] input"));
+    WebElement checkbox = driver.findElement(By.cssSelector("[data-test-id=agreement] span"));
+    WebElement button = driver.findElement(By.cssSelector("button"));
+
 
 
     @BeforeAll
@@ -37,11 +38,7 @@ public class CardOrderNegativeTest {
 
         driver = new ChromeDriver(options);
 
-        driver.get("http://localhost:9999/");
-        WebElement nameField = driver.findElement(By.cssSelector("[data-test-id=name] input"));
-        WebElement phoneField = driver.findElement(By.cssSelector("[data-test-id=phone] input"));
-        WebElement checkbox = driver.findElement(By.cssSelector("[data-test-id=agreement] span"));
-        WebElement button = driver.findElement(By.cssSelector("button"));
+        driver.get("http://localhost:9999/");;
     }
 
     @AfterEach
