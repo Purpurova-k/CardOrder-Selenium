@@ -35,6 +35,8 @@ public class CardOrderNegativeTest {
         options.addArguments("--headless");
 
         driver = new ChromeDriver(options);
+
+        driver.get("http://localhost:9999/");
     }
 
     @AfterEach
@@ -45,8 +47,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidNameFieldEnglish() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidNameFieldEnglish() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Ivanov Ivan");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("+79998887766");
         driver.findElement(By.cssSelector(checkbox)).click();
@@ -60,8 +61,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidNameFieldWithNumbers() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidNameFieldWithNumbers() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван999");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("+79998887766");
         driver.findElement(By.cssSelector(checkbox)).click();
@@ -75,8 +75,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidNameFieldEmpty() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidNameFieldEmpty() {
         driver.findElement(By.cssSelector(phoneField)).sendKeys("+79998887766");
         driver.findElement(By.cssSelector(checkbox)).click();
         driver.findElement(By.cssSelector(button)).click();
@@ -89,8 +88,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidPhoneFieldLetters() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidPhoneFieldLetters() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("телефон");
         driver.findElement(By.cssSelector(checkbox)).click();
@@ -104,8 +102,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidPhoneFieldFewNumbers() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidPhoneFieldFewNumbers() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("+7999");
         driver.findElement(By.cssSelector(checkbox)).click();
@@ -119,8 +116,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidPhoneFieldWithoutPlus() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidPhoneFieldWithoutPlus() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("79998887766");
         driver.findElement(By.cssSelector(checkbox)).click();
@@ -134,8 +130,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void InvalidPhoneFieldEmpty() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormInvalidPhoneFieldEmpty() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector(checkbox)).click();
         driver.findElement(By.cssSelector(button)).click();
@@ -148,8 +143,7 @@ public class CardOrderNegativeTest {
 
 
     @Test
-    public void uncheckedCheckbox() {
-        driver.get("http://localhost:9999/");
+    public void shouldNotSendFormUncheckedCheckbox() {
         driver.findElement(By.cssSelector(nameField)).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector(phoneField)).sendKeys("+79998887766");
         driver.findElement(By.cssSelector(button)).click();
